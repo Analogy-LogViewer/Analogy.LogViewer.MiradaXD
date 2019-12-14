@@ -14,7 +14,13 @@ namespace Analogy.LogViewer.MiradaXD
         public string OptionalTitle { get; } = "ICAP Mirada Offline Parser";
         public bool IsConnected { get; set; }
         public Guid ID { get; } = new Guid("3D753B16-D542-4386-9403-4E88B597ECFA");
-        public Task InitializeDataProviderAsync()
+        public bool CanSaveToLogFile { get; } = false;
+        public string FileOpenDialogFilters { get; } = "Mirada XD log|XD.log|Mirada XD Debug file|XDDebug.log";
+        public string FileSaveDialogFilters { get; } = string.Empty;
+        public IEnumerable<string> SupportFormats { get; } = new[] { "XD.log", "XDDebug.log" };
+        public string InitialFolderFullPath { get; } = String.Empty;
+
+        public Task InitializeDataProviderAsync(IAnalogyLogger logger)
         {
             return Task.CompletedTask;
         }
@@ -23,12 +29,6 @@ namespace Analogy.LogViewer.MiradaXD
         {
             //nop
         }
-
-        public bool CanSaveToLogFile { get; } = false;
-        public string FileOpenDialogFilters { get; } = "Mirada XD log|XD.log|Mirada XD Debug file|XDDebug.log";
-        public string FileSaveDialogFilters { get; } = string.Empty;
-        public IEnumerable<string> SupportFormats { get; } = new[] { "XD.log", "XDDebug.log" };
-        public string InitialFolderFullPath { get; } = String.Empty;
 
         public async Task<IEnumerable<AnalogyLogMessage>> Process(string fileName, CancellationToken token, ILogMessageCreatedHandler messagesHandler)
         {
