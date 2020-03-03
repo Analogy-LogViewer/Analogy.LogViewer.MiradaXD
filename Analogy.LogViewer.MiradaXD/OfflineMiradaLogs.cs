@@ -68,6 +68,7 @@ namespace Analogy.LogViewer.MiradaXD
             => fileName.EndsWith("XD.log", StringComparison.InvariantCultureIgnoreCase) ||
                fileName.EndsWith("XDDebug.log", StringComparison.InvariantCultureIgnoreCase);
         public bool CanOpenAllFiles(IEnumerable<string> fileNames) => fileNames.All(CanOpenFile);
+        public bool DisableFilePoolingOption { get; } = false;
 
         public static List<FileInfo> GetSupportedFilesInternal(DirectoryInfo dirInfo, bool recursive)
         {
