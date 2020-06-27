@@ -70,7 +70,7 @@ namespace Analogy.LogViewer.MiradaXD
                             int firsSpace = sub.IndexOf(' ');
                             string proccess = sub.Substring(0, firsSpace);
                             if (int.TryParse(proccess, out int p))
-                                m.ProcessID = p;
+                                m.ProcessId = p;
                             string other = sub.Substring(firsSpace + 1);
                             if (other.StartsWith("INFO "))
                             {
