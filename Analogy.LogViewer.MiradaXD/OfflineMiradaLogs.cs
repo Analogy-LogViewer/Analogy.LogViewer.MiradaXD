@@ -12,10 +12,10 @@ namespace Analogy.LogViewer.MiradaXD
 {
     public class OfflineMiradaLogs : IAnalogyOfflineDataProvider
     {
-        public string OptionalTitle { get; } = "ICAP Mirada Offline Parser";
-        public Guid Id { get; } = new Guid("3D753B16-D542-4386-9403-4E88B597ECFA");
-        public Image LargeImage => null;
-        public Image SmallImage => null;
+        public string OptionalTitle { get; set; } = "ICAP Mirada Offline Parser";
+        public Guid Id { get; set; } = new Guid("3D753B16-D542-4386-9403-4E88B597ECFA");
+        public Image LargeImage { get; set; } = null;
+        public Image SmallImage { get; set; } = null;
         public bool CanSaveToLogFile { get; } = false;
         public string FileOpenDialogFilters { get; } = "Mirada XD log|XD.log|Mirada XD Debug file|XDDebug.log";
         public string FileSaveDialogFilters { get; } = string.Empty;
