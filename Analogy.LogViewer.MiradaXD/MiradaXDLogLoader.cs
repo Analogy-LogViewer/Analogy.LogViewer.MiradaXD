@@ -74,7 +74,7 @@ namespace Analogy.LogViewer.MiradaXD
                             string other = sub.Substring(firsSpace + 1);
                             if (other.StartsWith("INFO "))
                             {
-                                m.Level = AnalogyLogLevel.Event;
+                                m.Level = AnalogyLogLevel.Information;
                                 m.Text = other.Replace("INFO ", "").Trim();
                             }
                             else if (other.StartsWith("ERROR "))
@@ -87,7 +87,7 @@ namespace Analogy.LogViewer.MiradaXD
                                 if (other.Contains(": INFO :"))
                                 {
                                     other = other.Replace(": INFO :", "");
-                                    m.Level = AnalogyLogLevel.Event;
+                                    m.Level = AnalogyLogLevel.Information;
 
                                     int indexOfSpace = other.IndexOf(' ');
                                     m.Source = other.Substring(0, indexOfSpace);
@@ -111,7 +111,7 @@ namespace Analogy.LogViewer.MiradaXD
                                 }
                                 else
                                 {
-                                    m.Level = AnalogyLogLevel.Event;
+                                    m.Level = AnalogyLogLevel.Information;
                                     m.Text = other.Trim();
                                 }
                             }
@@ -119,7 +119,7 @@ namespace Analogy.LogViewer.MiradaXD
                             if (token.IsCancellationRequested)
                             {
                                 string msg = "Processing cancelled by User.";
-                                messages.Add(new AnalogyLogMessage(msg, AnalogyLogLevel.Event, AnalogyLogClass.General, "Analogy", "None"));
+                                messages.Add(new AnalogyLogMessage(msg, AnalogyLogLevel.Information, AnalogyLogClass.General, "Analogy", "None"));
                                 logWindow.AppendMessages(messages, GetFileNameAsDataSource(FileName));
                                 return messages;
                             }
